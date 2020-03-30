@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alex/NSU/OP/lab3/header_lab3.h
+
+/home/alex/NSU/OP/lab3/main.c
+stdio.h
+-
+unistd.h
+-
+errno.h
+-
+header_lab3.h
+/home/alex/NSU/OP/lab3/header_lab3.h
+

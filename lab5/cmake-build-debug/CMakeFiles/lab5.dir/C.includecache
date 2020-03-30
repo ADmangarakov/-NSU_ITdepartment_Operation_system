@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alex/NSU/OS/lab5/file_reader.c
+unistd.h
+-
+stdio.h
+-
+fcntl.h
+-
+stdlib.h
+-
+errno.h
+-
+file_reader.h
+/home/alex/NSU/OS/lab5/file_reader.h
+
+/home/alex/NSU/OS/lab5/file_reader.h
+
+/home/alex/NSU/OS/lab5/main.c
+stdio.h
+-
+stdlib.h
+-
+file_reader.h
+/home/alex/NSU/OS/lab5/file_reader.h
+
