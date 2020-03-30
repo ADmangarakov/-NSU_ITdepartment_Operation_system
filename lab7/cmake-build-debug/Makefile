@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lab7
+# Target rules for targets named lab8
 
 # Build rule for target.
-lab7: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lab7
-.PHONY : lab7
+lab8: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lab8
+.PHONY : lab8
 
 # fast build rule for target.
-lab7/fast:
-	$(MAKE) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/build
-.PHONY : lab7/fast
+lab8/fast:
+	$(MAKE) -f CMakeFiles/lab8.dir/build.make CMakeFiles/lab8.dir/build
+.PHONY : lab8/fast
 
 file_reader.o: file_reader.c.o
 
@@ -129,7 +129,7 @@ file_reader.o: file_reader.c.o
 
 # target to build an object file
 file_reader.c.o:
-	$(MAKE) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/file_reader.c.o
+	$(MAKE) -f CMakeFiles/lab8.dir/build.make CMakeFiles/lab8.dir/file_reader.c.o
 .PHONY : file_reader.c.o
 
 file_reader.i: file_reader.c.i
@@ -138,7 +138,7 @@ file_reader.i: file_reader.c.i
 
 # target to preprocess a source file
 file_reader.c.i:
-	$(MAKE) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/file_reader.c.i
+	$(MAKE) -f CMakeFiles/lab8.dir/build.make CMakeFiles/lab8.dir/file_reader.c.i
 .PHONY : file_reader.c.i
 
 file_reader.s: file_reader.c.s
@@ -147,7 +147,7 @@ file_reader.s: file_reader.c.s
 
 # target to generate assembly for a file
 file_reader.c.s:
-	$(MAKE) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/file_reader.c.s
+	$(MAKE) -f CMakeFiles/lab8.dir/build.make CMakeFiles/lab8.dir/file_reader.c.s
 .PHONY : file_reader.c.s
 
 main.o: main.c.o
@@ -156,7 +156,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.c.o
+	$(MAKE) -f CMakeFiles/lab8.dir/build.make CMakeFiles/lab8.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -165,7 +165,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.c.i
+	$(MAKE) -f CMakeFiles/lab8.dir/build.make CMakeFiles/lab8.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -174,7 +174,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/lab7.dir/build.make CMakeFiles/lab7.dir/main.c.s
+	$(MAKE) -f CMakeFiles/lab8.dir/build.make CMakeFiles/lab8.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -184,7 +184,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... lab7"
+	@echo "... lab8"
 	@echo "... edit_cache"
 	@echo "... file_reader.o"
 	@echo "... file_reader.i"

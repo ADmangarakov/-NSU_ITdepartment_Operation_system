@@ -1,5 +1,5 @@
 //
-// Created by alex on 11.03.2020.
+// Created by alex on 31.03.2020.
 //
 
 #include <unistd.h>
@@ -7,36 +7,22 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <sys/mman.h>
+#include <string.h>
 #include "file_reader.h"
 
-int create_table(const char *const file_name, int **table) {
-    int file = open(file_name, O_RDWR);
-    if (file == -1) {
-        perror("Error while open file: ");
-        exit(EXIT_FAILURE);
-    }
-    int file_len = lseek(file, 0, SEEK_END);
-    char * ptr_file;
-    ptr_file = (char *) mmap(0, file_len, PROT_READ | PROT_WRITE, MAP_SHARED, file, 0);
+int create_table(const char *const ptr_file, int **table, int file_len) {
 
-
-    char buf[BUF_SIZE];
-    int real_len, cur_str = 1, count = 0, table_size_count = 1;
-    do {
-        real_len = read(file, buf, BUF_SIZE);
-        for (int i = 0; i < real_len; ++i) {
-            if (buf[i] == '\n') {
-                (*table)[cur_str] = i + count * BUF_SIZE;
-                ++cur_str;
-            }
-            if (cur_str == TABLE_SIZE * table_size_count) {
-                ++table_size_count;
-                *table = realloc(*table, table_size_count * TABLE_SIZE * sizeof(int));
-            }
+    int cur_str = 1, table_size_count = 1;
+    for (int i = 0; i < file_len; ++i) {
+        if (ptr_file[i] == '\n') {
+            (*table)[cur_str] = i;
+            ++cur_str;
         }
-        ++count;
-    } while (real_len == BUF_SIZE);
+        if (cur_str == TABLE_SIZE * table_size_count) {
+            ++table_size_count;
+            *table = realloc(*table, table_size_count * TABLE_SIZE * sizeof(int));
+        }
+    }
     return cur_str;
 }
 
@@ -86,26 +72,11 @@ void get_str_num(long *const str_num, int const block_input) {
     }
 }
 
-void print_string(char const *const FILE_NAME, int const *const table, long const str_num) {
+void print_string(char const *const ptr_file, int const *const table, long const str_num) {
     long str_start_num = table[str_num - 1];
     long str_end_num = table[str_num];
-    int file = open(FILE_NAME, O_RDONLY);
-    if (file == -1) {
-        perror("Error while open file: ");
-        exit(EXIT_FAILURE);
-    }
-    if (lseek(file, str_start_num, SEEK_SET) == ERROR_CODE) {
-        perror("Error while searching str:");
-        close(file);
-        exit(EXIT_FAILURE);
-    }
-    char *out_str = malloc(sizeof(char) * (str_end_num - str_start_num));
-    if (read(file, out_str, str_end_num - str_start_num) == ERROR_CODE) {
-        perror("Error while reading file:");
-        close(file);
-        exit(EXIT_FAILURE);
-    }
+    char *out_str = (char *) calloc(sizeof(char), (str_end_num - str_start_num + 1));
+    strncpy(out_str, ptr_file + str_start_num, (str_end_num - str_start_num + 1));
     printf("%s\n", out_str);
     free(out_str);
-    close(file);
 }

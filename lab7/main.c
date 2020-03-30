@@ -1,11 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <bits/fcntl-linux.h>
+#include <unistd.h>
+#include <sys/mman.h>
 #include "file_reader.h"
 
 int main() {
-    char const *const FILE_NAME = "test.txt";
+    char const *const FILE_NAME = "../main.c";
     int *table = calloc(TABLE_SIZE, sizeof(int));
-    int max_str = create_table(FILE_NAME, &table);
+
+    int file = open(FILE_NAME, O_RDWR);
+    if (file == -1) {
+        perror("Error while open file: ");
+        exit(EXIT_FAILURE);
+    }
+    int file_len = lseek(file, 0, SEEK_END);
+    char *ptr_file;
+    ptr_file = (char *) mmap(0, file_len, PROT_READ | PROT_WRITE, MAP_SHARED, file, 0);
+
+    int max_str = create_table(ptr_file, &table, file_len);
 
     while (1) {
         long str_num;
@@ -24,11 +38,8 @@ int main() {
             fprintf(stderr, "No such string! Try again\n");
             continue;
         }
-
-
-        print_string(FILE_NAME, table, str_num);
+        print_string(ptr_file, table, str_num);
     }
 }
-
 
 

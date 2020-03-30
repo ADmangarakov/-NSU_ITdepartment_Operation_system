@@ -1,3 +1,0 @@
-/home/alex/NSU/OS/lab8/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/alex/NSU/OS/lab8/cmake-build-debug/CMakeFiles/lab8.dir
-/home/alex/NSU/OS/lab8/cmake-build-debug/CMakeFiles/edit_cache.dir
