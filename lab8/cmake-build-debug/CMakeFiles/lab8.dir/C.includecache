@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alex/NSU/OS/lab8/main.c
+stdio.h
+-
+stdlib.h
+-
+fcntl.h
+-
+asm/errno.h
+-
+errno.h
+-
+unistd.h
+-
+

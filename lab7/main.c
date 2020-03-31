@@ -28,11 +28,15 @@ int main() {
 
         if (str_num == EXIT_SUCCESS) {
             printf("Program is closing\n");
-            exit(EXIT_SUCCESS);
+            close(file);
+            munmap(ptr_file, file_len);
+            return EXIT_SUCCESS;
         } else if (str_num == TIME_OUT) {
             for (int i = 1; i < max_str; ++i) {
                 print_string(FILE_NAME, table, i);
             }
+            close(file);
+            munmap(ptr_file, file_len);
             return EXIT_SUCCESS;
         } else if (str_num >= max_str || str_num < 1) {
             fprintf(stderr, "No such string! Try again\n");
