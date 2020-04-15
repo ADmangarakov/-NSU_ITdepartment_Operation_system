@@ -42,7 +42,6 @@ int execvpe(const char *file, char *const argv[], char *envp[]) {
             flag = TRUE;
             close(f);
         }
-
         offset = found + 1;
     }
 
