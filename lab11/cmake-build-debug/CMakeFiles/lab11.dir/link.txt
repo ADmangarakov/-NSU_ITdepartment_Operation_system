@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/lab11.dir/main.c.o CMakeFiles/lab11.dir/execvpe.c.o  -o lab11 
