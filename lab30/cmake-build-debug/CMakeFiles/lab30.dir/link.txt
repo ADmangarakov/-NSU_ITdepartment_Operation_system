@@ -1,0 +1,1 @@
+C:/cygwin64/bin/gcc.exe -g  -Wl,--enable-auto-import CMakeFiles/lab30.dir/client.c.o CMakeFiles/lab30.dir/server.c.o  -o lab30.exe -Wl,--out-implib,liblab30.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

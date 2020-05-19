@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lab16.dir/main.c.o"
-  "lab16"
+  "lab16.exe"
   "lab16.pdb"
+  "liblab16.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -8,6 +8,6 @@
 
 #define COUNT_SYMBS 1
 #define ERROR -1
-
+#define EMAIL_LEN 256
 
 #endif //LAB16_HEADER_H
