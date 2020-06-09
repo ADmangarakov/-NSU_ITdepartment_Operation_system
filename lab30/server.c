@@ -52,7 +52,6 @@ int main(int argc, char *argv[]) {
                 char upChar = (char)toupper(buf[i]);
                 write(STDOUT_FILENO, &upChar, sizeof(char));
             }
-//            printf("read %u bytes: %.*s\n", rc, rc, buf);
         }
         if (rc == -1) {
             perror("read");
